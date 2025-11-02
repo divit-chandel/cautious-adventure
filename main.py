@@ -18,7 +18,7 @@ if "messages" not in st.session_state:
 # --- AI Setup ---
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="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",
+    api_key=st.secrets["API_KEY"],
 )
 
 # Sidebar & info
@@ -116,3 +116,4 @@ with chat_container:
         role = "human" if msg["role"] == "user" else "ai"
         with st.chat_message(role):
             st.markdown(msg["content"])
+
